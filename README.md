@@ -4,6 +4,6 @@
 
 ## Current projects
 
-- [Chatinabox](https://github.com/somewhereafter/chatinabox) — Real Codex CLI sessions through Telegram, so work is not tied to a terminal.
-- [Remote Browser](https://github.com/somewhereafter/remote-browser) — A scriptless interactive view of remote Chromium, keeping page code and sessions on the server.
-- [Frontier](https://github.com/somewhereafter/frontier) — A small Codex harness with tighter context, recoverable evidence, and stale-edit guards.
+- 📦 [Chatinabox](https://github.com/somewhereafter/chatinabox) — Real Codex CLI sessions through Telegram, so work is not tied to a terminal.
+- 🪞 [Remote Browser](https://github.com/somewhereafter/remote-browser) — A scriptless interactive view of remote Chromium, keeping page code and sessions on the server.
+- 🧭 [Frontier](https://github.com/somewhereafter/frontier) — A small Codex harness with tighter context, recoverable evidence, and stale-edit guards.
