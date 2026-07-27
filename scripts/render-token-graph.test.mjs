@@ -42,3 +42,23 @@ test('cache-busts the profile image once per Almanac day', () => {
   assert.match(readme, /token-use\.svg\?v=2026-07-30-2/);
   assert.doesNotMatch(readme, /ca_read_|credential|almanac/i);
 });
+
+test('refreshes the graph block without touching the rest of the README', () => {
+  const existing = [
+    '<p align="center">',
+    '  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/token-use.svg?v=2026-01-01-2" alt="Cumulative token use over the past 30 days" width="100%">',
+    '</p>',
+    '',
+    '## Current projects',
+    '',
+    '- [Something](https://example.com) — A description.',
+    ''
+  ].join('\n');
+
+  const readme = renderReadme(snapshot.asOfDate, existing);
+  assert.match(readme, /token-use\.svg\?v=2026-07-30-2/);
+  assert.doesNotMatch(readme, /v=2026-01-01-2/);
+  assert.match(readme, /## Current projects/);
+  assert.match(readme, /- \[Something\]\(https:\/\/example\.com\) — A description\./);
+  assert.equal(readme.match(/<p align="center">/g).length, 1);
+});

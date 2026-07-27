@@ -191,12 +191,16 @@ export function renderSnapshot(snapshot) {
 `;
 }
 
-export function renderReadme(asOfDate) {
+// The graph block is generated; everything after it is hand-written and must
+// survive a refresh, so only the leading <p align="center"> block is replaced.
+export function renderReadme(asOfDate, existingReadme = '') {
   const version = assertDateKey(asOfDate, 'snapshot.asOfDate');
-  return `<p align="center">
+  const graph = `<p align="center">
   <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/token-use.svg?v=${version}-${CACHE_REVISION}" alt="Cumulative token use over the past 30 days" width="100%">
 </p>
 `;
+  const body = existingReadme.replace(/^<p align="center">[\s\S]*?<\/p>\n/, '');
+  return body.trim() ? `${graph}\n${body.replace(/^\n+/, '')}` : graph;
 }
 
 async function loadSnapshot() {
@@ -226,9 +230,10 @@ export async function main() {
   const snapshot = await loadSnapshot();
   const output = resolve(process.env.GRAPH_OUTPUT || 'assets/token-use.svg');
   const readmeOutput = resolve(process.env.README_OUTPUT || 'README.md');
+  const existingReadme = await readFile(readmeOutput, 'utf8').catch(() => '');
   await mkdir(dirname(output), { recursive: true });
   await writeFile(output, renderSnapshot(snapshot), 'utf8');
-  await writeFile(readmeOutput, renderReadme(snapshot.asOfDate), 'utf8');
+  await writeFile(readmeOutput, renderReadme(snapshot.asOfDate, existingReadme), 'utf8');
   process.stdout.write(`rendered ${output} and refreshed ${readmeOutput}\n`);
 }
 
