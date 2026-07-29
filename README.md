@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/token-use.svg?v=2026-07-28-2" alt="Cumulative token use over the past 30 days" width="100%">
+  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/token-use.svg?v=2026-07-29-2" alt="Cumulative token use over the past 30 days" width="100%">
 </p>
 
 Tools I wanted to exist, built to run on my own server.
