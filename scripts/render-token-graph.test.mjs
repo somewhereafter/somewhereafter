@@ -38,27 +38,33 @@ test('rejects invalid or negative daily totals', () => {
 });
 
 test('cache-busts the profile image once per Almanac day', () => {
-  const readme = renderReadme(snapshot.asOfDate);
-  assert.match(readme, /token-use\.svg\?v=2026-07-30-2/);
+  const readme = renderReadme(snapshot.asOfDate, '<!-- token-graph:start -->\nold\n<!-- token-graph:end -->\n');
+  assert.match(readme, /token-use\.svg\?v=2026-07-30-3/);
   assert.doesNotMatch(readme, /ca_read_|credential|almanac/i);
 });
 
-test('refreshes the graph block without touching the rest of the README', () => {
+test('rewrites only the marked region and keeps the hand-written README', () => {
   const existing = [
-    '<p align="center">',
-    '  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/token-use.svg?v=2026-01-01-2" alt="Cumulative token use over the past 30 days" width="100%">',
-    '</p>',
+    '<!-- token-graph:start -->',
+    '<p align="center">stale graph</p>',
+    '<!-- token-graph:end -->',
     '',
     '## Current projects',
     '',
-    '- [Something](https://example.com) — A description.',
+    '- a project line worth keeping.',
     ''
   ].join('\n');
 
   const readme = renderReadme(snapshot.asOfDate, existing);
-  assert.match(readme, /token-use\.svg\?v=2026-07-30-2/);
-  assert.doesNotMatch(readme, /v=2026-01-01-2/);
+  assert.doesNotMatch(readme, /stale graph/);
   assert.match(readme, /## Current projects/);
-  assert.match(readme, /- \[Something\]\(https:\/\/example\.com\) — A description\./);
-  assert.equal(readme.match(/<p align="center">/g).length, 1);
+  assert.match(readme, /- a project line worth keeping\./);
+  assert.equal(readme.match(/token-graph:start/g).length, 1);
+  assert.ok(readme.endsWith('- a project line worth keeping.\n'));
+});
+
+test('preserves existing content when the markers are missing', () => {
+  const readme = renderReadme(snapshot.asOfDate, '## Current projects\n\n- keep me.\n');
+  assert.match(readme, /token-graph:start/);
+  assert.match(readme, /- keep me\./);
 });
