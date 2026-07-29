@@ -3,7 +3,9 @@ import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const WINDOW_DAYS = 30;
-const CACHE_REVISION = 2;
+const CACHE_REVISION = 3;
+const GRAPH_START = '<!-- token-graph:start -->';
+const GRAPH_END = '<!-- token-graph:end -->';
 
 function assertDateKey(value, label) {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
@@ -115,13 +117,13 @@ export function renderSnapshot(snapshot) {
   for (let value = 0; value <= ceiling + step / 2; value += step) {
     const pointY = y(value);
     horizontalGrid.push(
-      `<path d="M${plot.x} ${pointY.toFixed(2)}H${plot.x + plot.width}" stroke="#263536" stroke-width="1"/>`,
+      `<path d="M${plot.x} ${pointY.toFixed(2)}H${plot.x + plot.width}" stroke="#16262b" stroke-width="1"/>`,
       `<text x="${plot.x - 18}" y="${(pointY + 4).toFixed(2)}" text-anchor="end">${escapeXml(compactNumber(value))}</text>`
     );
   }
 
   const verticalGrid = [0, 7, 14, 21, 29]
-    .map((index) => `<path d="M${x(index).toFixed(2)} ${plot.y}V${plot.y + plot.height}" stroke="#1c282a" stroke-width="1"/>`)
+    .map((index) => `<path d="M${x(index).toFixed(2)} ${plot.y}V${plot.y + plot.height}" stroke="#101d21" stroke-width="1"/>`)
     .join('');
 
   const dateLabels = [0, 14, 29]
@@ -139,68 +141,106 @@ export function renderSnapshot(snapshot) {
   <title id="title">30-day cumulative token use</title>
   <desc id="description">${escapeXml(`Cumulative token use from ${window[0].date} through ${asOfDate}, totaling ${Math.round(total).toLocaleString('en-US')} tokens.`)}</desc>
   <defs>
-    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M24 0H0V24" fill="none" stroke="#223035" stroke-width="1"/>
-    </pattern>
-    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
-      <path d="M0 .5H4" stroke="#d8ceba" stroke-opacity=".018"/>
-    </pattern>
-    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#538788" stop-opacity=".28"/>
-      <stop offset="1" stop-color="#538788" stop-opacity=".015"/>
+    <linearGradient id="spectral" gradientUnits="userSpaceOnUse" x1="${plot.x}" y1="0" x2="${plot.x + plot.width}" y2="0">
+      <stop offset="0" stop-color="#9bffdc"/>
+      <stop offset=".5" stop-color="#6ee7ff"/>
+      <stop offset="1" stop-color="#b5a3ff"/>
     </linearGradient>
+    <linearGradient id="wordmark" gradientUnits="userSpaceOnUse" x1="152" y1="70" x2="232" y2="100">
+      <stop offset="0" stop-color="#9bffdc"/>
+      <stop offset="1" stop-color="#6ee7ff"/>
+    </linearGradient>
+    <linearGradient id="seam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9bffdc" stop-opacity="0"/>
+      <stop offset=".18" stop-color="#9bffdc" stop-opacity=".85"/>
+      <stop offset=".52" stop-color="#6ee7ff" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#b5a3ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6ee7ff" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#6ee7ff" stop-opacity=".01"/>
+    </linearGradient>
+    <radialGradient id="sky" cx=".28" cy="0" r=".85">
+      <stop offset="0" stop-color="#6ee7ff" stop-opacity=".12"/>
+      <stop offset=".5" stop-color="#9bffdc" stop-opacity=".04"/>
+      <stop offset="1" stop-color="#9bffdc" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="drift" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#b5a3ff" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#b5a3ff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grain" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".6" fill="#dff6f1" fill-opacity=".05"/>
+    </pattern>
     <filter id="signalGlow" x="-20%" y="-40%" width="140%" height="180%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <clipPath id="card">
+      <rect width="${width}" height="${height}" rx="20"/>
+    </clipPath>
   </defs>
 
-  <rect width="${width}" height="${height}" fill="#070909"/>
-  <rect width="${width}" height="${height}" fill="url(#grid)" opacity=".13"/>
-  <rect width="${width}" height="${height}" fill="url(#scan)"/>
-  <rect x=".5" y=".5" width="${width - 1}" height="${height - 1}" fill="none" stroke="#263536"/>
-
-  <g fill="#6f7d7b" font-family="Consolas, ui-monospace, monospace" font-size="11" letter-spacing="2">
-    <text x="64" y="42">PERSONAL INSTRUMENT / 30D</text>
-    <text x="1136" y="42" text-anchor="end">UPDATED ${asOfDate}</text>
+  <g clip-path="url(#card)">
+    <rect width="${width}" height="${height}" fill="#05080b"/>
+    <rect width="${width}" height="${height}" fill="url(#grain)"/>
+    <rect width="${width}" height="${height}" fill="url(#sky)"/>
+    <ellipse cx="1080" cy="370" rx="360" ry="160" fill="url(#drift)"/>
+    <rect width="${width}" height="1.5" fill="url(#seam)"/>
   </g>
+  <rect x=".5" y=".5" width="${width - 1}" height="${height - 1}" rx="19.5" fill="none" stroke="#16262b"/>
 
-  <text x="60" y="91" fill="#d8ceba" font-family="Georgia, 'Times New Roman', serif" font-size="39" font-style="italic">token use</text>
-  <text x="276" y="88" fill="#859290" font-family="Consolas, ui-monospace, monospace" font-size="11" letter-spacing="1.8">CUMULATIVE / ALL SURFACES</text>
-  <text x="1136" y="89" text-anchor="end" fill="#d8ceba" font-family="Consolas, ui-monospace, monospace" font-size="16" letter-spacing="1.2">${escapeXml(totalLabel)}</text>
+  <rect x="64" y="37" width="24" height="2" rx="1" fill="#9bffdc"/>
+  <text x="100" y="43" fill="#9bffdc" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="3.2">PERSONAL INSTRUMENT / 30D</text>
+  <text x="1136" y="43" text-anchor="end" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="2">UPDATED ${asOfDate}</text>
 
-  <g fill="#647371" font-family="Consolas, ui-monospace, monospace" font-size="10" letter-spacing="1.2">
+  <text x="62" y="95" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.4">
+    <tspan fill="#f2f7f6">token</tspan><tspan fill="url(#wordmark)"> use</tspan>
+  </text>
+  <text x="252" y="93" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="2.2">CUMULATIVE / ALL SURFACES</text>
+  <text x="1136" y="94" text-anchor="end" fill="#c7fff0" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="1.2">${escapeXml(totalLabel)}</text>
+
+  <g fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10" letter-spacing="1.2">
     ${horizontalGrid.join('')}
     ${dateLabels}
   </g>
   ${verticalGrid}
 
   <path d="${areaPath}" fill="url(#area)"/>
-  <path d="${linePath}" fill="none" stroke="#315d61" stroke-width="7" stroke-opacity=".24" filter="url(#signalGlow)"/>
-  <path d="${linePath}" fill="none" stroke="#d8ceba" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="${linePath}" fill="none" stroke="url(#spectral)" stroke-width="7" stroke-opacity=".2" filter="url(#signalGlow)"/>
+  <path d="${linePath}" fill="none" stroke="url(#spectral)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <path d="M${endX.toFixed(2)} ${plot.y}V${plot.y + plot.height}" stroke="#538788" stroke-width="1" stroke-dasharray="2 6" opacity=".9"/>
-  <circle cx="${endX.toFixed(2)}" cy="${endY.toFixed(2)}" r="5.5" fill="#070909" stroke="#d8ceba" stroke-width="2"/>
-  <rect x="${(endX - 2).toFixed(2)}" y="${(endY - 2).toFixed(2)}" width="4" height="4" fill="#538788"/>
+  <path d="M${endX.toFixed(2)} ${plot.y}V${plot.y + plot.height}" stroke="#b5a3ff" stroke-width="1" stroke-dasharray="2 6" opacity=".55"/>
+  <circle cx="${endX.toFixed(2)}" cy="${endY.toFixed(2)}" r="6" fill="#b5a3ff" fill-opacity=".18"/>
+  <circle cx="${endX.toFixed(2)}" cy="${endY.toFixed(2)}" r="3.5" fill="#05080b" stroke="#b5a3ff" stroke-width="2"/>
 
-  <g fill="#647371" font-family="Consolas, ui-monospace, monospace" font-size="9" letter-spacing="1.5">
-    <text x="64" y="198" transform="rotate(-90 64 198)" text-anchor="middle">CUMULATIVE TOKENS</text>
+  <g fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9" letter-spacing="1.5">
+    <text x="60" y="198" transform="rotate(-90 60 198)" text-anchor="middle">CUMULATIVE TOKENS</text>
     <text x="1136" y="339" text-anchor="end">ROLLING WINDOW / DAILY REFRESH</text>
   </g>
 </svg>
 `;
 }
 
-// The graph block is generated; everything after it is hand-written and must
-// survive a refresh, so only the leading <p align="center"> block is replaced.
-export function renderReadme(asOfDate, existingReadme = '') {
+export function renderGraphBlock(asOfDate) {
   const version = assertDateKey(asOfDate, 'snapshot.asOfDate');
-  const graph = `<p align="center">
+  return `${GRAPH_START}
+<p align="center">
   <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/token-use.svg?v=${version}-${CACHE_REVISION}" alt="Cumulative token use over the past 30 days" width="100%">
 </p>
-`;
-  const body = existingReadme.replace(/^<p align="center">[\s\S]*?<\/p>\n/, '');
-  return body.trim() ? `${graph}\n${body.replace(/^\n+/, '')}` : graph;
+${GRAPH_END}`;
+}
+
+// Only the marked region is regenerated; everything else in the README is hand-written
+// and must survive the daily refresh.
+export function renderReadme(asOfDate, existing = '') {
+  const block = renderGraphBlock(asOfDate);
+  const start = existing.indexOf(GRAPH_START);
+  const end = existing.indexOf(GRAPH_END);
+  if (start === -1 || end === -1 || end < start) {
+    return existing ? `${block}\n\n${existing.replace(/^\n+/, '')}` : `${block}\n`;
+  }
+  return existing.slice(0, start) + block + existing.slice(end + GRAPH_END.length);
 }
 
 async function loadSnapshot() {
