@@ -1,6 +1,6 @@
 <!-- token-graph:start -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/token-use.svg?v=2026-07-29-3" alt="Cumulative token use over the past 30 days" width="100%">
+  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/token-use.svg?v=2026-07-30-3" alt="Cumulative token use over the past 30 days" width="100%">
 </p>
 <!-- token-graph:end -->
 
