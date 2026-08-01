@@ -3,7 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const WINDOW_DAYS = 30;
-const CACHE_REVISION = 3;
+const CACHE_REVISION = 4;
 const GRAPH_START = '<!-- token-graph:start -->';
 const GRAPH_END = '<!-- token-graph:end -->';
 

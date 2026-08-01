@@ -39,7 +39,7 @@ test('rejects invalid or negative daily totals', () => {
 
 test('cache-busts the profile image once per Almanac day', () => {
   const readme = renderReadme(snapshot.asOfDate, '<!-- token-graph:start -->\nold\n<!-- token-graph:end -->\n');
-  assert.match(readme, /token-use\.svg\?v=2026-07-30-3/);
+  assert.match(readme, /token-use\.svg\?v=2026-07-30-4/);
   assert.doesNotMatch(readme, /ca_read_|credential|almanac/i);
 });
 
