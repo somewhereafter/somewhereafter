@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
   <title id="title">30-day cumulative token use</title>
-  <desc id="description">Cumulative token use from 2026-07-12 through 2026-08-10, totaling 15,947,427,767 tokens.</desc>
+  <desc id="description">Cumulative token use from 2026-07-13 through 2026-08-11, totaling 15,378,669,397 tokens.</desc>
   <defs>
     <linearGradient id="spectral" gradientUnits="userSpaceOnUse" x1="124" y1="0" x2="1136" y2="0">
       <stop offset="0" stop-color="#9bffdc"/>
@@ -53,27 +53,27 @@
 
   <rect x="64" y="37" width="24" height="2" rx="1" fill="#9bffdc"/>
   <text x="100" y="43" fill="#9bffdc" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="3.2">PERSONAL INSTRUMENT / 30D</text>
-  <text x="1136" y="43" text-anchor="end" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="2">UPDATED 2026-08-10</text>
+  <text x="1136" y="43" text-anchor="end" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="2">UPDATED 2026-08-11</text>
 
   <text x="62" y="95" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.4">
     <tspan fill="#f2f7f6">token</tspan><tspan fill="url(#wordmark)"> use</tspan>
   </text>
   <text x="252" y="93" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="2.2">CUMULATIVE / ALL SURFACES</text>
-  <text x="1136" y="94" text-anchor="end" fill="#c7fff0" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="1.2">15.9B TOKENS</text>
+  <text x="1136" y="94" text-anchor="end" fill="#c7fff0" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="1.2">15.4B TOKENS</text>
 
   <g fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10" letter-spacing="1.2">
     <path d="M124 284.00H1136" stroke="#16262b" stroke-width="1"/><text x="106" y="288.00" text-anchor="end">0</text><path d="M124 241.00H1136" stroke="#16262b" stroke-width="1"/><text x="106" y="245.00" text-anchor="end">5B</text><path d="M124 198.00H1136" stroke="#16262b" stroke-width="1"/><text x="106" y="202.00" text-anchor="end">10B</text><path d="M124 155.00H1136" stroke="#16262b" stroke-width="1"/><text x="106" y="159.00" text-anchor="end">15B</text><path d="M124 112.00H1136" stroke="#16262b" stroke-width="1"/><text x="106" y="116.00" text-anchor="end">20B</text>
-    <text x="124.00" y="311" text-anchor="start">JUL 12</text><text x="612.55" y="311" text-anchor="middle">JUL 26</text><text x="1136.00" y="311" text-anchor="end">AUG 10</text>
+    <text x="124.00" y="311" text-anchor="start">JUL 13</text><text x="612.55" y="311" text-anchor="middle">JUL 27</text><text x="1136.00" y="311" text-anchor="end">AUG 11</text>
   </g>
   <path d="M124.00 112V284" stroke="#101d21" stroke-width="1"/><path d="M368.28 112V284" stroke="#101d21" stroke-width="1"/><path d="M612.55 112V284" stroke="#101d21" stroke-width="1"/><path d="M856.83 112V284" stroke="#101d21" stroke-width="1"/><path d="M1136.00 112V284" stroke="#101d21" stroke-width="1"/>
 
-  <path d="M124.00 278.80 L158.90 274.34 L193.79 270.02 L228.69 263.14 L263.59 259.17 L298.48 248.94 L333.38 236.60 L368.28 226.50 L403.17 220.80 L438.07 217.39 L472.97 213.20 L507.86 209.07 L542.76 206.66 L577.66 198.52 L612.55 193.19 L647.45 189.55 L682.34 182.65 L717.24 176.96 L752.14 168.41 L787.03 164.36 L821.93 163.12 L856.83 162.18 L891.72 161.64 L926.62 158.93 L961.52 155.72 L996.41 151.03 L1031.31 147.81 L1066.21 147.39 L1101.10 147.06 L1136.00 146.85 L1136.00 284.00 L124 284.00 Z" fill="url(#area)"/>
-  <path d="M124.00 278.80 L158.90 274.34 L193.79 270.02 L228.69 263.14 L263.59 259.17 L298.48 248.94 L333.38 236.60 L368.28 226.50 L403.17 220.80 L438.07 217.39 L472.97 213.20 L507.86 209.07 L542.76 206.66 L577.66 198.52 L612.55 193.19 L647.45 189.55 L682.34 182.65 L717.24 176.96 L752.14 168.41 L787.03 164.36 L821.93 163.12 L856.83 162.18 L891.72 161.64 L926.62 158.93 L961.52 155.72 L996.41 151.03 L1031.31 147.81 L1066.21 147.39 L1101.10 147.06 L1136.00 146.85" fill="none" stroke="url(#spectral)" stroke-width="7" stroke-opacity=".2" filter="url(#signalGlow)"/>
-  <path d="M124.00 278.80 L158.90 274.34 L193.79 270.02 L228.69 263.14 L263.59 259.17 L298.48 248.94 L333.38 236.60 L368.28 226.50 L403.17 220.80 L438.07 217.39 L472.97 213.20 L507.86 209.07 L542.76 206.66 L577.66 198.52 L612.55 193.19 L647.45 189.55 L682.34 182.65 L717.24 176.96 L752.14 168.41 L787.03 164.36 L821.93 163.12 L856.83 162.18 L891.72 161.64 L926.62 158.93 L961.52 155.72 L996.41 151.03 L1031.31 147.81 L1066.21 147.39 L1101.10 147.06 L1136.00 146.85" fill="none" stroke="url(#spectral)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M124.00 279.54 L158.90 275.21 L193.79 268.33 L228.69 264.36 L263.59 254.14 L298.48 241.79 L333.38 231.70 L368.28 226.00 L403.17 222.59 L438.07 218.39 L472.97 214.27 L507.86 211.86 L542.76 203.71 L577.66 198.39 L612.55 194.75 L647.45 187.84 L682.34 182.16 L717.24 173.61 L752.14 169.56 L787.03 168.32 L821.93 167.37 L856.83 166.84 L891.72 164.12 L926.62 160.92 L961.52 156.23 L996.41 153.01 L1031.31 152.59 L1066.21 152.26 L1101.10 151.88 L1136.00 151.74 L1136.00 284.00 L124 284.00 Z" fill="url(#area)"/>
+  <path d="M124.00 279.54 L158.90 275.21 L193.79 268.33 L228.69 264.36 L263.59 254.14 L298.48 241.79 L333.38 231.70 L368.28 226.00 L403.17 222.59 L438.07 218.39 L472.97 214.27 L507.86 211.86 L542.76 203.71 L577.66 198.39 L612.55 194.75 L647.45 187.84 L682.34 182.16 L717.24 173.61 L752.14 169.56 L787.03 168.32 L821.93 167.37 L856.83 166.84 L891.72 164.12 L926.62 160.92 L961.52 156.23 L996.41 153.01 L1031.31 152.59 L1066.21 152.26 L1101.10 151.88 L1136.00 151.74" fill="none" stroke="url(#spectral)" stroke-width="7" stroke-opacity=".2" filter="url(#signalGlow)"/>
+  <path d="M124.00 279.54 L158.90 275.21 L193.79 268.33 L228.69 264.36 L263.59 254.14 L298.48 241.79 L333.38 231.70 L368.28 226.00 L403.17 222.59 L438.07 218.39 L472.97 214.27 L507.86 211.86 L542.76 203.71 L577.66 198.39 L612.55 194.75 L647.45 187.84 L682.34 182.16 L717.24 173.61 L752.14 169.56 L787.03 168.32 L821.93 167.37 L856.83 166.84 L891.72 164.12 L926.62 160.92 L961.52 156.23 L996.41 153.01 L1031.31 152.59 L1066.21 152.26 L1101.10 151.88 L1136.00 151.74" fill="none" stroke="url(#spectral)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 
   <path d="M1136.00 112V284" stroke="#b5a3ff" stroke-width="1" stroke-dasharray="2 6" opacity=".55"/>
-  <circle cx="1136.00" cy="146.85" r="6" fill="#b5a3ff" fill-opacity=".18"/>
-  <circle cx="1136.00" cy="146.85" r="3.5" fill="#05080b" stroke="#b5a3ff" stroke-width="2"/>
+  <circle cx="1136.00" cy="151.74" r="6" fill="#b5a3ff" fill-opacity=".18"/>
+  <circle cx="1136.00" cy="151.74" r="3.5" fill="#05080b" stroke="#b5a3ff" stroke-width="2"/>
 
   <g fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9" letter-spacing="1.5">
     <text x="60" y="198" transform="rotate(-90 60 198)" text-anchor="middle">CUMULATIVE TOKENS</text>
