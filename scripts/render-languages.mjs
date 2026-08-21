@@ -108,12 +108,16 @@ export function renderCard(summary, asOfDate) {
   });
 
   // Legend: five columns, two rows. Name, share, then absolute size.
+  // Justify the columns edge to edge. Pitching at span/columns leaves the last
+  // cell's unused tail inside the block, which makes the legend read as
+  // left-shifted against the full-width bar above it.
   const columns = 5;
-  const columnWidth = span / columns;
+  const cellWidth = 104;
+  const pitch = (span - cellWidth) / (columns - 1);
   const legend = summary.languages.slice(0, columns * 2).map((lang, index) => {
     const col = index % columns;
     const row = Math.floor(index / columns);
-    const x = left + col * columnWidth;
+    const x = left + col * pitch;
     const y = 222 + row * 74;
     const pct = lang.share * 100;
     const pctLabel = pct >= 10 ? `${pct.toFixed(1)}%` : `${pct.toFixed(2)}%`;
