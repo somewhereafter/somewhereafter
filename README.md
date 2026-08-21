@@ -8,6 +8,7 @@ Tools I wanted to exist, built to run on my own server.
 
 ## Current projects
 
+- ⚡ [RIFT](https://github.com/somewhereafter/rift) — One device sends, another receives, both online. Direct and relayed paths raced, nothing stored in between. Coming soon.
 - 📦 [Chatinabox](https://github.com/somewhereafter/chatinabox) — Real Codex CLI sessions through Telegram. Leave the terminal, come back to the same session.
 - 🪞 [Remote Browser](https://github.com/somewhereafter/remote-browser) — Chromium stays on the server and viewers get a scriptless mirror, so the page's text stays text.
 - 🧭 [Frontier](https://github.com/somewhereafter/frontier) — A small Codex harness: less repository in view, exact evidence kept, stale edits refused.
