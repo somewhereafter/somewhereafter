@@ -19,4 +19,4 @@ Some of my work:
 | 🪞 [Remote Browser](https://github.com/somewhereafter/remote-browser) | Chromium on the server, mirrored to viewers | Scriptless, so the page's text stays text |
 | 🧭 [Frontier](https://github.com/somewhereafter/frontier) | A small Codex harness | Less repo in view, exact evidence, no stale edits |
 | 🔑 [FrankenFile](https://github.com/somewhereafter/frankenfile) | Six characters and they get the files | Immutable, expiring, self-hosted |
-| 📄 [FrankenMarkdown](https://github.com/somewhereafter/frankenmarkdown) | Markdown in, typeset PDF out | One binary. No browser, no LaTeX, no Node |
+| 📄 [FrankenMarkdown](https://github.com/somewhereafter/frankenmarkdown) (fork) | Markdown in, typeset PDF out | One binary. No browser, no LaTeX, no Node |
