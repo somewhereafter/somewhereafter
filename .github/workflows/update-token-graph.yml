@@ -1,4 +1,4 @@
-name: Update token graph
+name: Update profile cards
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: token-graph
+  group: profile-cards
   cancel-in-progress: false
 
 permissions:
@@ -25,23 +25,36 @@ jobs:
         with:
           node-version: 22
 
-      - name: Test renderer
-        run: node --test scripts/render-token-graph.test.mjs
+      - name: Test renderers
+        run: |
+          node --test scripts/render-token-graph.test.mjs
+          node --test scripts/render-languages.test.mjs
 
-      - name: Render latest graph
+      - name: Render token graph
         env:
           ALMANAC_ORIGIN: ${{ secrets.ALMANAC_ORIGIN }}
           ALMANAC_READ_TOKEN: ${{ secrets.ALMANAC_READ_TOKEN }}
         run: node scripts/render-token-graph.mjs
 
-      - name: Commit graph when it changed
+      # PROFILE_STATS_TOKEN is a PAT with `repo` scope. The default GITHUB_TOKEN
+      # only sees this repository, so without a PAT the card would silently
+      # report public repositories alone. Skipped rather than wrong, and never
+      # allowed to fail the token graph above.
+      - name: Render languages card
+        if: ${{ secrets.PROFILE_STATS_TOKEN != '' }}
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
+        run: node scripts/render-languages.mjs
+
+      - name: Commit whatever changed
         run: |
-          if git diff --quiet -- README.md assets/token-use.svg; then
-            echo "Graph is already current."
+          if git diff --quiet -- README.md assets/; then
+            echo "Cards are already current."
             exit 0
           fi
           git config user.name "token-current[bot]"
           git config user.email "token-current[bot]@users.noreply.github.com"
-          git add README.md assets/token-use.svg
-          git commit -m "update 30-day token graph"
+          git add README.md assets/
+          git commit -m "update profile cards"
           git push

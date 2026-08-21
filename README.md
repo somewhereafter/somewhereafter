@@ -4,6 +4,12 @@
 </p>
 <!-- token-graph:end -->
 
+<!-- languages:start -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/languages.svg?v=2026-08-21-1" alt="Language mix across all repositories" width="100%">
+</p>
+<!-- languages:end -->
+
 Tools I wanted to exist, built to run on my own server.
 
 ## Current projects
