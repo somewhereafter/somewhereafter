@@ -40,8 +40,10 @@ jobs:
       # only sees this repository, so without a PAT the card would silently
       # report public repositories alone. Skipped rather than wrong, and never
       # allowed to fail the token graph above.
+      # The secrets context is not usable inside `if:`, so the presence check
+      # goes through env instead.
       - name: Render languages card
-        if: ${{ secrets.PROFILE_STATS_TOKEN != '' }}
+        if: env.GITHUB_TOKEN != ''
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
