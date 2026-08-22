@@ -14,7 +14,7 @@ Some of my work:
 
 | Tool | What | Why |
 |---|---|---|
-| ⚡ [RIFT](https://github.com/somewhereafter/rift) | Live transfer between two online machines | Nothing stored in between, every path raced. Coming soon |
+| ⚡ [RIFT](https://github.com/somewhereafter/rift) | Live transfer between two online machines | Nothing stored in between, every path raced |
 | 📦 [Chatinabox](https://github.com/somewhereafter/chatinabox) | Codex CLI sessions over Telegram | Leave the terminal, come back to the same session |
 | 🪞 [Remote Browser](https://github.com/somewhereafter/remote-browser) | Chromium on the server, mirrored to viewers | Scriptless, so the page's text stays text |
 | 🧭 [Frontier](https://github.com/somewhereafter/frontier) | A small Codex harness | Less repo in view, exact evidence, no stale edits |
