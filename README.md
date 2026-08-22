@@ -6,7 +6,7 @@
 
 <!-- languages:start -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/languages.svg?v=2026-08-21-1" alt="Language mix across all repositories" width="100%">
+  <img src="https://raw.githubusercontent.com/somewhereafter/somewhereafter/main/assets/languages.svg?v=2026-08-22-1" alt="Language mix across all repositories" width="100%">
 </p>
 <!-- languages:end -->
 

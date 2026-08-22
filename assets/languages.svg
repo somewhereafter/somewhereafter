@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
   <title id="title">Language mix across all repositories</title>
-  <desc id="description">Rust 50.8%, TypeScript 33%, Python 6.5%, Go 5.4%, JavaScript 1.4%, totalling 7.35 MB of source.</desc>
+  <desc id="description">Rust 50.8%, TypeScript 33%, Python 6.5%, Go 5.4%, JavaScript 1.5%, totalling 7.35 MB of source.</desc>
   <defs>
     <linearGradient id="wordmark" gradientUnits="userSpaceOnUse" x1="62" y1="0" x2="420" y2="0">
       <stop offset="0" stop-color="#9bffdc"/>
@@ -19,7 +19,7 @@
 
   <rect x="64" y="37" width="24" height="2" rx="1" fill="#9bffdc"/>
   <text x="100" y="43" fill="#9bffdc" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="3.2">PERSONAL INSTRUMENT / LANGUAGES</text>
-  <text x="1136" y="43" text-anchor="end" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="2">UPDATED 2026-08-21</text>
+  <text x="1136" y="43" text-anchor="end" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="2">UPDATED 2026-08-22</text>
 
   <text x="62" y="95" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.4">
     <tspan fill="#f2f7f6">code</tspan><tspan fill="url(#wordmark)"> mix</tspan>
@@ -29,11 +29,11 @@
   <text x="1136" y="112" text-anchor="end" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10" letter-spacing="1.6">13 LANGUAGES</text>
 
   <g clip-path="url(#barClip)">
-    <rect x="62.00" y="150" width="546.64" height="20" fill="#dea584"/>
-    <rect x="608.64" y="150" width="354.91" height="20" fill="#3178c6"/>
-    <rect x="963.55" y="150" width="70.48" height="20" fill="#3572A5"/>
-    <rect x="1034.03" y="150" width="57.66" height="20" fill="#00ADD8"/>
-    <rect x="1091.69" y="150" width="15.57" height="20" fill="#f1e05a"/>
+    <rect x="62.00" y="150" width="546.62" height="20" fill="#dea584"/>
+    <rect x="608.62" y="150" width="354.90" height="20" fill="#3178c6"/>
+    <rect x="963.52" y="150" width="70.48" height="20" fill="#3572A5"/>
+    <rect x="1034.00" y="150" width="57.66" height="20" fill="#00ADD8"/>
+    <rect x="1091.66" y="150" width="15.60" height="20" fill="#f1e05a"/>
     <rect x="1107.26" y="150" width="7.82" height="20" fill="#8b9cb3"/>
     <rect x="1115.08" y="150" width="7.32" height="20" fill="#89e051"/>
     <rect x="1122.39" y="150" width="5.90" height="20" fill="#e34c26"/>
@@ -70,7 +70,7 @@
     <rect x="1034.0" y="212" width="10" height="10" rx="2.5" fill="#f1e05a"/>
     <text x="1052.0" y="222" fill="#f2f7f6" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="12.5" letter-spacing="0.4">JavaScript</text>
     <text x="1034.0" y="252" fill="#f1e05a" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.8">1.45%</text>
-    <text x="1034.0" y="270" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10" letter-spacing="1.4">106 KB</text>
+    <text x="1034.0" y="270" fill="#5f7173" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="10" letter-spacing="1.4">107 KB</text>
   </g>
   <g>
     <rect x="62.0" y="286" width="10" height="10" rx="2.5" fill="#8b9cb3"/>
